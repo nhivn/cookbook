@@ -11,14 +11,14 @@ const Title = ({ text }) => (
       round="full"
       overflow="hidden"
       flex={false}
-      hoverIndicator={{ background: { color: "accent-1" } }}
+      hoverIndicator={{ color: "accent-1" }}
       border={{ color: "accent-1", size: "small" }}
+      onClick={() => {
+        navigate("/")
+      }}
     >
       <Button
         icon={<LinkPrevious />}
-        onClick={() => {
-          navigate("/")
-        }}
       />
     </Box>
     <Heading level={1} as="b" color="brand">
