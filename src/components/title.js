@@ -11,12 +11,11 @@ const Title = ({ text }) => (
       round="full"
       overflow="hidden"
       flex={false}
-      hoverIndicator={true}
+      hoverIndicator={{ background: { color: "accent-1" } }}
       border={{ color: "accent-1", size: "small" }}
     >
       <Button
         icon={<LinkPrevious />}
-        hoverIndicator={true}
         onClick={() => {
           navigate("/")
         }}
