@@ -1,15 +1,15 @@
 import React from "react"
 import { graphql } from "gatsby"
 import { navigate } from "@reach/router"
-import { TextInput, Box, Anchor, Heading } from "grommet"
+import { TextInput, Box, Anchor, Heading, ResponsiveContext } from "grommet"
 import { FormSearch } from "grommet-icons"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import Container from "../components/container"
 
-const IndexPage = ({ data }) => {
-  const allRecipes = data.allRecipe.edges
+const IndexPage = (props) => {
+  const allRecipes = props.data.allRecipe.edges
   const emptyQuery = ""
 
   const [state, setState] = React.useState({
@@ -17,15 +17,15 @@ const IndexPage = ({ data }) => {
     query: emptyQuery,
   })
 
-  const onSearchQueryChanged = event => {
+  const onSearchQueryChanged = (event) => {
     const query = event.target.value.trim().toLowerCase()
-    const filteredRecipes = allRecipes.filter(recipe => {
+    const filteredRecipes = allRecipes.filter((recipe) => {
       const { tips, note, steps, ingredients, title } = recipe.node
       return (
         (tips && tips.toLowerCase().includes(query)) ||
         (note && note.toLowerCase().includes(query)) ||
-        steps.some(s => s.toLowerCase().includes(query)) ||
-        ingredients.some(i => i.toLowerCase().includes(query)) ||
+        steps.some((s) => s.toLowerCase().includes(query)) ||
+        ingredients.some((i) => i.toLowerCase().includes(query)) ||
         title.toLowerCase().includes(query)
       )
     })
@@ -43,7 +43,23 @@ const IndexPage = ({ data }) => {
     <Layout animation="slideUp">
       <SEO title="Home" />
       <Container width="medium" margin="small" animation="slideUp">
-        <Heading size="large">Cookbook</Heading>
+        <ResponsiveContext.Consumer>
+          {(size) => (
+            <Box fill="horizontal" justify="center" align="center">
+              <Heading
+                size={
+                  size === "small" || size === "xsmall" ? "xlarge" : "large"
+                }
+                margin={
+                  size === "small" || size === "xsmall" ? "large" : "medium"
+                }
+              >
+                Cookbook
+              </Heading>
+            </Box>
+          )}
+        </ResponsiveContext.Consumer>
+
         <Box margin={{ bottom: "medium" }}>
           <TextInput
             dropHeight="3"
@@ -53,7 +69,7 @@ const IndexPage = ({ data }) => {
           />
         </Box>
 
-        {recipeEdges.map(edge => (
+        {recipeEdges.map((edge) => (
           <Anchor
             margin="small"
             onClick={() => {
@@ -72,7 +88,10 @@ const IndexPage = ({ data }) => {
             fill="horizontal"
             margin="small"
           >
-            Sorry, I got nothing <span role="img" ariaLabel="sad face">😞</span>
+            Sorry, I got nothing{" "}
+            <span role="img" aria-label="sad face">
+              😞
+            </span>
           </Box>
         )}
       </Container>
