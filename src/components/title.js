@@ -17,9 +17,7 @@ const Title = ({ text }) => (
         navigate("/")
       }}
     >
-      <Button
-        icon={<LinkPrevious />}
-      />
+      <Button icon={<LinkPrevious />} />
     </Box>
     <Heading level={1} as="b" color="brand">
       {text}
