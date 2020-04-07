@@ -44,7 +44,7 @@ const Layout = ({ children, animation }) => {
     <Grommet theme={theme}>
       <Box
         align="center"
-        fill="ßvertical"
+        fill="vertical"
         responsive
         pad={"small"}
         animation={animation}

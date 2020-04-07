@@ -1,13 +1,11 @@
 import React from "react"
 import { graphql } from "gatsby"
 import { navigate } from "@reach/router"
-import { TextInput, Box, Text, Anchor, Heading } from "grommet"
+import { TextInput, Box, Anchor, Heading } from "grommet"
 import { FormSearch } from "grommet-icons"
 
 import Layout from "../components/layout"
-import Image from "../components/image"
 import SEO from "../components/seo"
-import Recipe from "../components/recipe"
 import Container from "../components/container"
 
 const IndexPage = ({ data }) => {
@@ -58,7 +56,7 @@ const IndexPage = ({ data }) => {
         {recipeEdges.map(edge => (
           <Anchor
             margin="small"
-            onClick={event => {
+            onClick={() => {
               navigate(edge.node.slug)
             }}
             hoverIndicator={true}
@@ -74,7 +72,7 @@ const IndexPage = ({ data }) => {
             fill="horizontal"
             margin="small"
           >
-            Sorry, I got nothing 😞
+            Sorry, I got nothing <span role="img" ariaLabel="sad face">😞</span>
           </Box>
         )}
       </Container>

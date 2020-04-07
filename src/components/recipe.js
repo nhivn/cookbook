@@ -1,7 +1,5 @@
 import React from "react"
-import { navigate } from "gatsby"
-import { Box, Heading, Button } from "grommet"
-import { LinkPrevious } from "grommet-icons"
+import { Box, Heading } from "grommet"
 import Ingredient from "./ingredient"
 import Step from "./step"
 import Note from "./note"
