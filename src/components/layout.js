@@ -11,7 +11,7 @@ import { useStaticQuery, graphql } from "gatsby"
 import { Grommet, grommet, Box, Footer, Anchor } from "grommet"
 import { Github } from "grommet-icons"
 
-import "./layout.css"
+import "./Layout.css"
 
 const theme = {
   ...grommet,

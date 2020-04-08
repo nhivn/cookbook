@@ -2,9 +2,9 @@ import React from "react"
 import { graphql } from "gatsby"
 import { Box } from "grommet"
 
-import Layout from "../components/layout"
-import SEO from "../components/seo"
-import Recipe from "../components/recipe"
+import Layout from "../components/Layout"
+import SEO from "../components/Seo"
+import Recipe from "../components/Recipe"
 
 const RecipePage = ({ data }) => {
   const { recipe } = data

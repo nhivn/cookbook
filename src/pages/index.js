@@ -4,9 +4,9 @@ import { navigate } from "@reach/router"
 import { TextInput, Box, Anchor, Heading, ResponsiveContext } from "grommet"
 import { FormSearch } from "grommet-icons"
 
-import Layout from "../components/layout"
-import SEO from "../components/seo"
-import Container from "../components/container"
+import Layout from "../components/Layout"
+import SEO from "../components/Seo"
+import Container from "../components/Container"
 
 const IndexPage = (props) => {
   const allRecipes = props.data.allRecipe.edges
