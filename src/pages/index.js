@@ -7,6 +7,7 @@ import { FormSearch } from "grommet-icons"
 import Layout from "../components/Layout"
 import SEO from "../components/Seo"
 import Container from "../components/Container"
+import CookbookTitle from "../components/CookbookTitle"
 
 const IndexPage = (props) => {
   const allRecipes = props.data.allRecipe.edges
@@ -43,22 +44,7 @@ const IndexPage = (props) => {
     <Layout animation="slideUp">
       <SEO title="Home" />
       <Container width="medium" margin="small" animation="slideUp">
-        <ResponsiveContext.Consumer>
-          {(size) => (
-            <Box fill="horizontal" justify="center" align="center">
-              <Heading
-                size={
-                  size === "small" || size === "xsmall" ? "xlarge" : "large"
-                }
-                margin={
-                  size === "small" || size === "xsmall" ? "large" : "medium"
-                }
-              >
-                Cookbook
-              </Heading>
-            </Box>
-          )}
-        </ResponsiveContext.Consumer>
+        <CookbookTitle />
 
         <Box margin={{ bottom: "medium" }}>
           <TextInput

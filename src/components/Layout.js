@@ -17,8 +17,8 @@ const theme = {
   ...grommet,
   global: {
     font: {
-      name: "Delius",
-      family: "'Delius', Arial, sans-serif",
+      name: "Jost",
+      family: "'Jost', sans-serif",
     },
   },
   checkBox: {
@@ -26,6 +26,9 @@ const theme = {
     extend: {
       marginBottom: "5px",
     },
+  },
+  anchor: {
+    fontWeight: 400,
   },
 }
 

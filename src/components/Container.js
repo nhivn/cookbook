@@ -1,16 +1,19 @@
 import React from "react"
 import { Box, ResponsiveContext } from "grommet"
 
-const Container = props => {
+const Container = (props) => {
   const { children, margin, width, animation } = props
+  const phoneAndTableSizes = ["xsmall", "small"]
 
   return (
     <ResponsiveContext.Consumer>
-      {size => {
-        const defaultMargin =
-          size !== "small" && size !== "xsmall" ? "large" : "medium"
-        const defaultWidth =
-          size !== "small" && size !== "xsmall" ? "large" : "medium"
+      {(size) => {
+        const defaultMargin = !phoneAndTableSizes.includes(size)
+          ? "large"
+          : "medium"
+        const defaultWidth = !phoneAndTableSizes.includes(size)
+          ? "large"
+          : "medium"
         return (
           <Box
             margin={margin || { vertical: defaultMargin }}

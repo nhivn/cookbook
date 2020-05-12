@@ -17,7 +17,7 @@ const Tips = ({ text }) => (
     margin="small"
   >
     <Magic size="medium" color="status-ok" margin="small" />
-    <Text size="medium" weight="bold" color="status-ok">
+    <Text size="medium" color="status-ok">
       {text}
     </Text>
   </Box>

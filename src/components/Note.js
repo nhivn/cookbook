@@ -17,7 +17,7 @@ const Note = ({ text }) => (
     margin="small"
   >
     <StatusWarning size="medium" color="brand" margin="small" />
-    <Text size="medium" weight="bold" color="brand">
+    <Text size="medium" color="brand">
       {text}
     </Text>
   </Box>
