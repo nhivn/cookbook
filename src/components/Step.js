@@ -22,6 +22,7 @@ const Step = ({ number, step }) => {
         flex={false}
         height="xxsmall"
         width="xxsmall"
+        margin={{ top: "xxsmall" }}
       >
         <Text size="large" weight="bold" color="gray">
           {number}
