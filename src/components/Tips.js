@@ -15,6 +15,7 @@ const Tips = ({ text }) => (
     direction="row"
     gap="small"
     margin="small"
+    className="tips"
   >
     <Magic size="medium" color="status-ok" margin="small" />
     <Text size="medium" color="status-ok">

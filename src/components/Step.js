@@ -1,5 +1,5 @@
 import React, { useContext } from "react"
-import { Text, Markdown, Box, ResponsiveContext } from "grommet"
+import { Heading, Markdown, Box, ResponsiveContext } from "grommet"
 
 const Step = ({ number, step }) => {
   const size = useContext(ResponsiveContext)
@@ -24,9 +24,9 @@ const Step = ({ number, step }) => {
         width="xxsmall"
         margin={{ top: "xxsmall" }}
       >
-        <Text size="large" weight="bold" color="gray">
+        <Heading level={4} weight="bold" color="gray">
           {number}
-        </Text>
+        </Heading>
       </Box>
       <Box
         align="center"
@@ -35,7 +35,7 @@ const Step = ({ number, step }) => {
         round="small"
         pad={{ horizontal: "xsmall", vertical: isMobile ? "medium" : "small" }}
       >
-        <Markdown>{step}</Markdown>
+        <Markdown className="step-description">{step}</Markdown>
       </Box>
     </Box>
   )

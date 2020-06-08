@@ -17,18 +17,33 @@ const theme = {
   ...grommet,
   global: {
     font: {
-      name: "Jost",
-      family: "'Jost', sans-serif",
+      name: "Montserrat",
+      family: "'Montserrat', sans-serif",
     },
   },
   checkBox: {
     size: "20px",
     extend: {
       marginBottom: "5px",
+      letterSpacing: "0.05em",
+      fontSize: "0.85em",
+      lineHeight: "2em",
     },
   },
   anchor: {
-    fontWeight: 400,
+    fontWeight: 800,
+    extend: `font-variant-caps: all-small-caps;
+    letter-spacing: 0.1em;`,
+  },
+  heading: {
+    weight: 800,
+    extend: `letter-spacing: 0.1em`,
+  },
+  text: {
+    extend: {
+      letterSpacing: "0.05em",
+      fontSize: "0.85em",
+    },
   },
 }
 

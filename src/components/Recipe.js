@@ -12,7 +12,7 @@ const Recipe = ({ title, ingredients, steps, note, tips }) => (
     <Title text={title} />
 
     <Box alignContent="left" margin="small">
-      <Heading level={4}>Ingredients</Heading>
+      <Heading level={6}>INGREDIENTS</Heading>
       {ingredients.map((ingredient) => (
         <Ingredient name={ingredient} />
       ))}
@@ -23,7 +23,7 @@ const Recipe = ({ title, ingredients, steps, note, tips }) => (
     {tips && <Tips text={tips} />}
 
     <Box alignContent="left" margin="small">
-      <Heading level={4}>Directions</Heading>
+      <Heading level={6}>DIRECTIONS</Heading>
       {steps.map((s, i) => (
         <Step number={i + 1} step={s} />
       ))}

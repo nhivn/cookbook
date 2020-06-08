@@ -19,8 +19,8 @@ const Title = ({ text }) => (
     >
       <Button icon={<LinkPrevious />} />
     </Box>
-    <Heading level={1} as="b" color="brand">
-      {text}
+    <Heading level={3} as="b" color="brand">
+      {text.toUpperCase()}
     </Heading>
   </Box>
 )

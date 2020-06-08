@@ -7,7 +7,7 @@ const Ingredient = ({ name }) => {
     <CheckBox
       checked={checked}
       label={`${name}`}
-      onChange={event => setChecked(event.target.checked)}
+      onChange={(event) => setChecked(event.target.checked)}
     />
   )
 }
