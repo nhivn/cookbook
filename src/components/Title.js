@@ -1,28 +1,41 @@
-import React from "react"
+import React, { useContext } from "react"
 import { navigate } from "gatsby"
-import { Heading, Box, Button } from "grommet"
+import { Heading, Box, Button, ResponsiveContext } from "grommet"
 import { LinkPrevious } from "grommet-icons"
+import styled from "styled-components"
 
-const Title = ({ text }) => (
-  <Box align="center" justify="start" direction="row" gap="small">
-    <Box
-      align="center"
-      justify="center"
-      round="full"
-      overflow="hidden"
-      flex={false}
-      hoverIndicator={{ color: "accent-1" }}
-      border={{ color: "accent-1", size: "small" }}
-      onClick={() => {
-        navigate("/")
-      }}
-    >
-      <Button icon={<LinkPrevious />} />
+const PreviousArrow = styled(Button)`
+  transition: all 0.2s ease-in-out;
+  &:hover {
+    transform: scale(1.1);
+  }
+`
+
+const Title = ({ text }) => {
+  const screenSize = useContext(ResponsiveContext)
+  const isMobile = screenSize === "small" || screenSize === "xsmall"
+
+  return (
+    <Box align="center" justify="start" direction="row" gap="small">
+      <PreviousArrow
+        icon={<LinkPrevious />}
+        onClick={() => {
+          navigate("/")
+        }}
+      />
+
+      <Box
+        fill={true}
+        flex={true}
+        pad={{ right: isMobile ? "xlarge" : "medium" }}
+        align="center"
+      >
+        <Heading level={3} as="b" color="brand">
+          {text.toUpperCase()}
+        </Heading>
+      </Box>
     </Box>
-    <Heading level={3} as="b" color="brand">
-      {text.toUpperCase()}
-    </Heading>
-  </Box>
-)
+  )
+}
 
 export default Title

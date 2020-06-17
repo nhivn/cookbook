@@ -30,11 +30,6 @@ const theme = {
       lineHeight: "2em",
     },
   },
-  anchor: {
-    fontWeight: 800,
-    extend: `font-variant-caps: all-small-caps;
-    letter-spacing: 0.1em;`,
-  },
   heading: {
     weight: 800,
     extend: `letter-spacing: 0.1em`,

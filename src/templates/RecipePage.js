@@ -9,6 +9,11 @@ import Recipe from "../components/Recipe"
 const RecipePage = ({ data }) => {
   const { recipe } = data
 
+  if (!recipe.credit)
+    recipe.credit = {
+      name: "Nhi Nguyen",
+    }
+
   return (
     <Layout animation="slideLeft">
       <SEO title={recipe.title} />
@@ -19,6 +24,7 @@ const RecipePage = ({ data }) => {
           steps={recipe.steps}
           note={recipe.note}
           tips={recipe.tips}
+          credit={recipe.credit}
         />
       </Box>
     </Layout>
@@ -35,6 +41,11 @@ export const query = graphql`
       steps
       ingredients
       title
+      credit {
+        image
+        name
+        url
+      }
     }
   }
 `

@@ -3,11 +3,18 @@ import { graphql } from "gatsby"
 import { navigate } from "@reach/router"
 import { TextInput, Box, Anchor, Heading, ResponsiveContext } from "grommet"
 import { FormSearch } from "grommet-icons"
+import styled from "styled-components"
 
 import Layout from "../components/Layout"
 import SEO from "../components/Seo"
 import Container from "../components/Container"
 import CookbookTitle from "../components/CookbookTitle"
+
+const RecipeAnchor = styled(Anchor)`
+  font-variant-caps: all-small-caps;
+  letter-spacing: 0.1em;
+  font-weight: 800;
+`
 
 const IndexPage = (props) => {
   const allRecipes = props.data.allRecipe.edges
@@ -30,7 +37,6 @@ const IndexPage = (props) => {
         title.toLowerCase().includes(query)
       )
     })
-
     setState({
       query: event.target.value.trim(),
       filteredRecipes,
@@ -56,7 +62,7 @@ const IndexPage = (props) => {
         </Box>
 
         {recipeEdges.map((edge) => (
-          <Anchor
+          <RecipeAnchor
             margin="small"
             onClick={() => {
               navigate(edge.node.slug)
@@ -64,8 +70,9 @@ const IndexPage = (props) => {
             hoverIndicator={true}
           >
             {edge.node.title}
-          </Anchor>
+          </RecipeAnchor>
         ))}
+
         {!recipeEdges.length && (
           <Box
             direction="row"
