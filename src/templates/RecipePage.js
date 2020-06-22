@@ -7,7 +7,7 @@ import SEO from "../components/Seo"
 import Recipe from "../components/Recipe"
 
 const RecipePage = ({ data }) => {
-  const { recipe } = data
+  const recipe = data.allRecipe.nodes[0]
 
   if (!recipe.credit)
     recipe.credit = {
@@ -35,16 +35,21 @@ export default RecipePage
 
 export const query = graphql`
   query GetRecipe($slug: String!) {
-    recipe(slug: { eq: $slug }) {
-      tips
-      note
-      steps
-      ingredients
-      title
-      credit {
-        image
-        name
-        url
+    allRecipe(filter: { fields: { slug: { eq: $slug } } }) {
+      nodes {
+        fields {
+          slug
+        }
+        credit {
+          image
+          name
+          url
+        }
+        ingredients
+        note
+        steps
+        tips
+        title
       }
     }
   }

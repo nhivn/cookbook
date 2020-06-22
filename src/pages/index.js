@@ -65,7 +65,7 @@ const IndexPage = (props) => {
           <RecipeAnchor
             margin="small"
             onClick={() => {
-              navigate(edge.node.slug)
+              navigate(edge.node.fields.slug)
             }}
             hoverIndicator={true}
           >
@@ -99,7 +99,9 @@ export const query = graphql`
     allRecipe {
       edges {
         node {
-          slug
+          fields {
+            slug
+          }
           tips
           note
           steps

@@ -7,6 +7,25 @@
 // You can delete this file if you're not using it
 
 const path = require("path")
+const moment = require("moment")
+
+exports.onCreateNode = ({ node, getNode, actions }) => {
+  const { createNodeField } = actions
+
+  if (node.internal.type === `Recipe`) {
+    const slug =
+      "/" +
+      moment(new Date(node.date)).format("YYYY/MM/DD") +
+      "/" +
+      node.title.toLowerCase().replace(/\s/gi, "-")
+
+    createNodeField({
+      node,
+      name: `slug`,
+      value: slug,
+    })
+  }
+}
 
 exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions
@@ -17,7 +36,9 @@ exports.createPages = async ({ graphql, actions }) => {
       allRecipe {
         edges {
           node {
-            slug
+            fields {
+              slug
+            }
           }
         }
       }
@@ -31,11 +52,13 @@ exports.createPages = async ({ graphql, actions }) => {
   const recipeEdges = result.data.allRecipe.edges
 
   recipeEdges.forEach((edge) => {
+    const slug = edge.node.fields.slug
+
     createPage({
-      path: edge.node.slug,
+      path: slug,
       component: recipePageTemplate,
       context: {
-        slug: edge.node.slug,
+        slug: slug,
       },
     })
   })
