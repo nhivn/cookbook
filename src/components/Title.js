@@ -30,7 +30,7 @@ const Title = ({ text }) => {
         pad={{ right: isMobile ? "xlarge" : "medium" }}
         align="center"
       >
-        <Heading level={3} as="b" color="brand">
+        <Heading level={3} as="b" color="brand" textAlign="center">
           {text.toUpperCase()}
         </Heading>
       </Box>
