@@ -11,11 +11,10 @@ import Credit from "./Credit"
 const Recipe = ({ title, ingredients, steps, note, tips, credit }) => (
   <Container>
     <Title text={title} />
-
     <Credit name={credit.name} image={credit.image} url={credit.url} />
 
     <Box margin="small">
-      <Heading level={6}>INGREDIENTS</Heading>
+      <Heading level={6}> INGREDIENTS </Heading>
       {ingredients.map((ingredient) => (
         <Ingredient name={ingredient} />
       ))}
@@ -23,10 +22,10 @@ const Recipe = ({ title, ingredients, steps, note, tips, credit }) => (
 
     {note && <Note text={note} />}
 
-    {tips && <Tips text={tips} />}
+    {tips && <Tips tips={tips} hasMultiple={tips.length > 1} />}
 
     <Box margin="small">
-      <Heading level={6}>DIRECTIONS</Heading>
+      <Heading level={6}> DIRECTIONS </Heading>
       {steps.map((s, i) => (
         <Step number={i + 1} step={s} />
       ))}

@@ -3,7 +3,7 @@ import React from "react"
 import { Box, Text } from "grommet"
 import { Magic } from "grommet-icons"
 
-const Tips = ({ text }) => (
+const Tips = ({ tips, hasMultiple }) => (
   <Box
     align="start"
     justify="center"
@@ -18,9 +18,15 @@ const Tips = ({ text }) => (
     className="tips"
   >
     <Magic size="medium" color="status-ok" margin="small" />
-    <Text size="medium" color="status-ok">
-      {text}
-    </Text>
+    <Box direction="column" gap="small">
+      {tips.map((text, index) => (
+        <div>
+          <Text size="medium" color="status-ok">
+            {hasMultiple && <b>Tips #{index + 1} - </b>} {text}
+          </Text>
+        </div>
+      ))}
+    </Box>
   </Box>
 )
 
