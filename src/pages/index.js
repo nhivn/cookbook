@@ -17,9 +17,10 @@ import SEO from "../components/Seo"
 import Container from "../components/Container"
 
 const RecipeAnchor = styled(Anchor)`
-  font-variant-caps: all-small-caps;
+  text-transform: uppercase;
   letter-spacing: 0.1em;
   font-weight: 800;
+  font-size: 0.7em;
 `
 
 const IndexPage = (props) => {
