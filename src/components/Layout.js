@@ -17,8 +17,8 @@ const theme = {
   ...grommet,
   global: {
     font: {
-      name: "Montserrat",
-      family: "'Montserrat', sans-serif",
+      name: "Synonym",
+      family: "Synonym, sans-serif",
     },
   },
   checkBox: {
@@ -36,8 +36,7 @@ const theme = {
   },
   text: {
     extend: {
-      letterSpacing: "0.05em",
-      fontSize: "0.85em",
+      fontSize: "1em",
     },
   },
 }
